@@ -8,16 +8,19 @@ var x = document.getElementById("myDate");
   var todaymonth=new Date().getMonth();
  
   var age=todayyear-birthyear;
+  var currentmonth =  todaymonth - birthmonth
+  
   var totalmonth=birthmonth+1+(age-1)*12+todaymonth+1;
   var todaytime=new Date().getTime();
-
+  var currentday= new Date().getDate() -birthdate.getDate();
   var days=Math.ceil((todaytime-birthdate)/(1000 * 3600 * 24));
   var Hours=Math.ceil((todaytime-birthdate)/(1000 * 3600));
   var Seconds=Math.ceil((todaytime-birthdate)/(1000));
   var MilliSeconds=Math.ceil((todaytime-birthdate));
-
-  console.log(age,days,totalmonth,Hours,Seconds/60,Seconds,MilliSeconds)
-  var message = `You are ${age} year, ${totalmonth} months and ${days} days old.`
+  if(currentmonth<0) {age--;currentmonth= Math.abs(currentmonth);}
+  if(currentday<0){currentmonth--;currentday=currentday+30}
+  console.log(age,days,currentmonth,Hours,Seconds/60,Seconds,MilliSeconds)
+  var message = `You are ${age} year, ${currentmonth} months and ${currentday} days old.`
   document.getElementById("year").innerHTML = age; 
   document.getElementById("months").innerHTML = totalmonth;
   document.getElementById("days").innerHTML =days;
