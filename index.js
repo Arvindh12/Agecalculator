@@ -22,7 +22,7 @@ var x = document.getElementById("myDate");
   console.log(age,days,currentmonth,Hours,Seconds/60,Seconds,MilliSeconds)
   var message = `You are ${age} year, ${currentmonth} months and ${currentday} days old.`
   document.getElementById("year").innerHTML = age; 
-  document.getElementById("months").innerHTML = totalmonth;
+  document.getElementById("months").innerHTML = Math.abs(totalmonth);
   document.getElementById("days").innerHTML =days;
   document.getElementById("hours").innerHTML =Hours;
   document.getElementById("Secs").innerHTML =Seconds;
